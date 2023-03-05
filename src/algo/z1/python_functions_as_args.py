@@ -5,26 +5,21 @@ def sqare(x):
 def cube(x):
     return x ** 3
 
-def add(a,b):
-    return a+b
+
+def add(a, b):
+    return a + b
+
 
 def mul(a, b):
-    return a*b
+    return a * b
 
-# easy way:
-# def calculate(f, a, b):
-#     if f == add:
-#         return a+b
-#     if f == mul:
-#         return a*b
-#     else:
-#         print('wrong shortcut definition')
 
 def calculate(f, a, b=0):
     try:
         return f(a, b)
     except TypeError:
         return f(a)
+
 
 def calculator(operation, argument):
     return operation(argument)
