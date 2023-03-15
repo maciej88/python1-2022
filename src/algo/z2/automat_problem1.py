@@ -4,27 +4,37 @@ from random import seed, randint
 
 
 def generate_data(data_size):
-    # tutaj wstawić coś co generuje dane dla naszego algorytmu
-    return [randint(0, 10 ** 6) for _ in range(data_size)]
+    seed(111)
+    array1 = [randint(0, 10 ** 4) for _ in range(data_size)]
+    array2 = [randint(0, 10 ** 4) for _ in range(data_size)]
+    return [array1, array2]
 
 
 def solve_problem(data):
-    # tutaj wstawić algorytm który rozwiązuje dany problem dla danych `data
-    pass
+    array1 = data[0]
+    array2 = data[1]
+    result = []
+    for i in range(len(array1)):
+        row = []
+        for j in range(len(array2)):
+            calc = array2[j] / array1[i]
+            if calc.is_integer():
+                row.append(calc)
+        return result.append(len(row))
 
 
 def run_tests(generator, solver):
     size = 10
     sizes = []
     times = []
-    while size < 100000:
+    while size < 10000:
         print(f'testing solver for {size=}')
         data = generator(size)
         REPETITIONS = 400
         time_sum = 0
         for i in range(REPETITIONS):
             st = datetime.now().timestamp()
-            ret = solver(data)
+            result = solver(data)
             en = datetime.now().timestamp()
             time_sum += (en - st)
 
