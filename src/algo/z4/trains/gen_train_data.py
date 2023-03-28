@@ -6,6 +6,7 @@ System "pocigągów" ... de facto połączeń między miastami reprezentowanymi 
 
 """
 from random import randint, seed
+from src.algo.z4.trains.a import get_city_most_connections
 
 N_CITIES = 20
 seed(111)
@@ -19,10 +20,12 @@ def generate_data(data_size):
 
 
 if __name__ == '__main__':
-    train_schedule = generate_data(40)
-    destinations = [[] for _ in range(N_CITIES)]
-    for (src, dst) in train_schedule:
-        # .... jakoś trzeba zupdate'ować do destinations[src]
-        pass
+    print(get_city_most_connections(generate_data(10)))
+
+    # train_schedule = generate_data(40)
+    # destinations = [[] for _ in range(N_CITIES)]
+    # for (src, dst) in train_schedule:
+    #     # .... jakoś trzeba zupdate'ować do destinations[src]
+    #     pass
 
     # jakoś trzeba przejść przez destinations i sprawdzić który src ma najdłuższą listę destinations[src]

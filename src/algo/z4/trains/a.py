@@ -7,4 +7,11 @@ zadanie1:
 
 
 def get_city_most_connections(train_data: list[tuple[int, int]]) -> int:
-    pass
+    count_dict = {}
+    for i in train_data:
+        if i[1] not in count_dict:
+            count_dict[i[1]] = 1
+        else:
+            count_dict[i[1]] += 1
+
+    return max(count_dict, key=count_dict.get)
