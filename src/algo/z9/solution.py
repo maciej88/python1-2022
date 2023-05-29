@@ -21,21 +21,31 @@ b = [1, 5, 1]  (teraz na ostatniej pozycji odjęliśmy 5, czyli a[1])
 
 
 def equalize_parity(a: list[int]) -> bool:
-    even = []
-    odd = []
-    a.sort()
-    for i in range(len(a)):
-        if a[i] % 2 == 0:
-            even.append(a[i])
-        if a[i] % 2 != 0:
-            odd.append(a[i])
-    if len(even) == len(a):
+    # even = []
+    # odd = []
+    # a.sort()
+    # for i in range(len(a)):
+    #     if a[i] % 2 == 0:
+    #         even.append(a[i])
+    #     if a[i] % 2 != 0:
+    #         odd.append(a[i])
+    # if len(even) == len(a):
+    #     return True
+    # if len(odd) == len(a):
+    #     return True
+    # if a[0] % 2 != 0:
+    #     return True
+    # else:
+    #     return False
+    n = len(a)
+    c = [x % 2 for x in a]
+    if sum(c) == 0 or sum(c) == n:
         return True
-    if len(odd) == len(a):
-        return True
-    if a[0] % 2 != 0:
-        return True
-    else:
-        return False
 
+    smallest = min(a)
+    if smallest % 2 == 1:
+        return True
 
+    return False
+
+    return True
