@@ -1,3 +1,4 @@
+from a_code import code_val
 
 def decode(word: str) -> str:
     x = [*word]
@@ -5,7 +6,7 @@ def decode(word: str) -> str:
     i = 0
     while i < len(x):
         output += x[i]
-        i += 5
+        i += code_val
     return output
 
 if __name__ == '__main__':
