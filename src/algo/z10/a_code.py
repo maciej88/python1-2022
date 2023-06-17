@@ -1,15 +1,15 @@
 import string, random
 from random import choice
 
-code_val = 1
+code_val = 4
 def encode(word: str) -> str:
     x = [*word]
     output = ''
     i = 0
     while i < len(x):
-        z = ''.join(choice(string.ascii_lowercase) for _ in range(3))
+        z = ''.join(choice(string.ascii_lowercase) for _ in range(code_val))
         res = f'{x[i]}{z}{x[i]}'
-        i += code_val
+        i += 1
         output += res
     return output
 

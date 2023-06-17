@@ -6,9 +6,9 @@ def decode(word: str) -> str:
     i = 0
     while i < len(x):
         output += x[i]
-        i += code_val
+        i += code_val + 2
     return output
 
 if __name__ == '__main__':
-    word = 'kyqbkabtlaxhldxefrbelhssl'
+    word = 'kexdrkayrpkaxajjnxefmoxelzkpql'
     print(decode(word))
