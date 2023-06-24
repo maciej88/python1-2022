@@ -8,6 +8,7 @@ def get_new_bag(data_size: int):
 
 def insert_element(bag: list[list], element: int):
     h = element.__hash__()
+    bag[h].append(element)
     # todo -- wrzucić odpowiednio hash `h` do bag
     # 1) sprawdzić czy już jest w bag-u; jeśli tak to return
     # 2) jeśli nie jest, to sprawdzić indeks listy do której trzeba wrzucić element, np. `idx`, i potem wrzucić
@@ -15,7 +16,9 @@ def insert_element(bag: list[list], element: int):
     #
 
 def contains_element(bag: list[list], element: int) -> bool:
+    n = len(bag)
     h = element.__hash__()
+    idx = h % n
     # todo: sprawdzić czy `x` z hashem `h` jest w `bag`
     # odpowiednio zawężony (do [0...M-1] hash ma być numerem listy)
     # wyliczyć "indeks listy" z hasha,
@@ -23,7 +26,12 @@ def contains_element(bag: list[list], element: int) -> bool:
 
 
 def remove_element(bag: list[list], element: int) -> bool:
+    if not contains_element(bag, element):
+        return
+    n = len(bag)
     h = element.__hash__()
+    idx = h % n
+    bag[idx].remove(element)
     # todo: usunąć `x` z hashem `h` z `bag`
     # wyliczyć "indeks listy" z hasha,
     # usunąć z listy bag[idx] element `element`
